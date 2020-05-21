@@ -271,10 +271,10 @@
 
 @media (max-width: 500px){
   #feedback-highlighter {
-    height: 450px;
+    height: 370px;
   }
   #feedback-overview {
-    height: 530px;
+    height: 580px;
   }
   #feedback-overview-note {
     width: 210px;
