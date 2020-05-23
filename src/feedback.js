@@ -25,7 +25,7 @@
       onScreenshotTaken: function () { },
       tpl: {
         description: '<div id="feedback-welcome"><div class="feedback-logo">Feedback</div><p>Feedback lets you send us suggestions about our products. We welcome problem reports, feature ideas and general comments.</p><p>Start by writing a brief description:</p><textarea id="feedback-note-tmp"></textarea><p>Next we\'ll let you identify areas of the page related to your description.</p><button id="feedback-welcome-next" class="feedback-next-btn feedback-btn-gray">Next</button><div id="feedback-welcome-error">Please enter a description and a valid email.</div><div class="feedback-wizard-close"></div></div>',
-        highlighter: '<div id="feedback-highlighter" style="height: 300px"><div class="feedback-logo">Feedback</div><p>Click or drag on the page (tap on mobile) the areas relevant to your feedback. Click "Next" when you are finished. Powered by <a href="https://www.loopinput.com/">Loop</a></p><button class="feedback-sethighlight feedback-active"><div class="ico"></div><span>Highlight</span></button><label>Highlight areas relevant to your feedback.</label><button class="feedback-setblackout"><div class="ico"></div><span>Black out</span></button><label class="lower">Black out any personal information.</label><div class="feedback-buttons"><button id="feedback-highlighter-next" class="feedback-next-btn feedback-btn-gray">Next</button><button id="feedback-highlighter-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div class="feedback-wizard-close"></div></div>',
+        highlighter: '<div id="feedback-highlighter"><div class="feedback-logo">Feedback</div><p>Click or drag on the page (tap on mobile) the areas relevant to your feedback. Click "Next" when you are finished. Powered by <a href="https://www.loopinput.com/">Loop</a></p><button class="feedback-sethighlight feedback-active"><div class="ico"></div><span>Highlight</span></button><label>Highlight areas relevant to your feedback.</label><button class="feedback-setblackout"><div class="ico"></div><span>Black out</span></button><label class="lower">Black out any personal information.</label><div class="feedback-buttons"><button id="feedback-highlighter-next" class="feedback-next-btn feedback-btn-gray">Next</button><button id="feedback-highlighter-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div class="feedback-wizard-close"></div></div>',
         submitSuccess: '<div id="feedback-submit-success"><div class="feedback-logo">Feedback</div><p>Thank you for your feedback. We value every piece of feedback we receive.</p><p>We cannot respond individually to every one, but we will use your comments as we strive to improve your experience.</p><button class="feedback-close-btn feedback-btn-blue">OK</button><div class="feedback-wizard-close"></div></div>',
         submitError: '<div id="feedback-submit-error"><div class="feedback-logo">Feedback</div><p>Thank you for your feedback. We value every piece of feedback we receive. Powered by <a href="https://www.loopinput.com/">Loop</a></p><button class="feedback-close-btn feedback-btn-blue">OK</button><div class="feedback-wizard-close"></div></div>',
         submitLoading: '<div id="feedback-submit-loading"><div class="feedback-logo">Uploading</div><p>Please wait...</p></div>',
@@ -38,11 +38,9 @@
     }, options);
 
 
-    
-
-    settings.tpl.overview = !options.isEmail ? '<div id="feedback-overview" style="height: 400px"><div class="feedback-logo">Feedback</div><div id="feedback-overview-description"><div id="feedback-overview-description-text"><h3>Description</h3><!--<h3 class="feedback-additional">Additional info</h3><div id="feedback-additional-none"><span>None</span></div><div id="feedback-browser-info"><span>Browser Info</span></div><div id="feedback-page-info"><span>Page Info</span></div>--><div id="feedback-page-structure"></div></div></div><div id="feedback-overview-screenshot"><h3>Screenshot</h3></div><div class="feedback-buttons"><button id="feedback-submit" class="feedback-submit-btn feedback-btn-blue">Submit</button><button id="feedback-overview-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div id="feedback-overview-error">Please enter a description and email.</div><div class="feedback-wizard-close"></div></div>' :
-      '<div id="feedback-overview" style="height: 400px"><div class="feedback-logo">Feedback</div><div id="feedback-overview-description"><div id="feedback-overview-description-text"><h3>Description</h3></div><div id="emailInfo"><h3>Email</h3><input id="emailField" type="email" pattern="^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$" placeholder="JohnDoe@gmail.com"></input></div></div><div id="feedback-overview-screenshot"><h3>Screenshot</h3></div><div class="feedback-buttons"><button id="feedback-submit" class="feedback-submit-btn feedback-btn-blue">Submit</button><button id="feedback-overview-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div id="feedback-overview-error" role="alert">Please enter a description and a valid email.</div><div class="feedback-wizard-close"></div></div>'
-
+    settings.tpl.overview = !options.isEmail ? '<div id="feedback-overview"><div class="feedback-logo">Feedback</div><div id="feedback-overview-description"><div id="feedback-overview-description-text"><h3>Description</h3><!--<h3 class="feedback-additional">Additional info</h3><div id="feedback-additional-none"><span>None</span></div><div id="feedback-browser-info"><span>Browser Info</span></div><div id="feedback-page-info"><span>Page Info</span></div>--><div id="feedback-page-structure"></div></div></div><div id="feedback-overview-screenshot"><h3>Screenshot</h3></div><div class="feedback-buttons"><button id="feedback-submit" class="feedback-submit-btn feedback-btn-blue">Submit</button><button id="feedback-overview-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div id="feedback-overview-error">Please enter a description and email.</div><div class="feedback-wizard-close"></div></div>' :
+                                              '<div id="feedback-overview"><div class="feedback-logo">Feedback</div><div id="feedback-overview-description"><div id="feedback-overview-description-text"><h3>Description</h3></div><div id="emailInfo"><h3>Email</h3><input id="emailField" type="email" pattern="^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$" placeholder="JohnDoe@gmail.com"></input></div></div><div id="feedback-overview-screenshot"><h3>Screenshot</h3></div><div class="feedback-buttons"><button id="feedback-submit" class="feedback-submit-btn feedback-btn-blue">Submit</button><button id="feedback-overview-back" class="feedback-back-btn feedback-btn-gray">Back</button></div><div id="feedback-overview-error" role="alert">Please enter a description and a valid email.</div><div class="feedback-wizard-close"></div></div>';
+  
     var supportedBrowser = !!window.HTMLCanvasElement;
     var isFeedbackButtonNative = settings.feedbackButton == '.feedback-btn';
 
@@ -677,50 +675,89 @@
 
           $('#feedback-note').val(tx);
         });
-
+        
         $('#feedback-submit').unbind('click').on('click', function () {
           var data, category;
           canDraw = false;
-          
+
           let emailInfo = $('#emailField').val();
           let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/
           let isValidEmail = regex.test(emailInfo);
 
-
-          if ($('#feedback-note').val().length > 0 && isValidEmail) {
-            $('#feedback-submit-success,#feedback-submit-error').remove();
-            $('#feedback-overview').hide();
-            category = $('#feedback-category');
-
-            post.img = img;
-            post.note = $('#feedback-note').val();
-            post.email = $('#emailField').val();
-            if (category) {
-              post.category = category.children('select').val();
-            }
-
-            if (typeof settings.postExtraInfo === 'function') {
-              post.extraInfo = settings.postExtraInfo();
-            }
-            data = { feedback: JSON.stringify(post) };
-            $('#feedback-module').append(settings.tpl.submitLoading);
-            $.ajax({
-              url: settings.endpoint,
-              dataType: 'json',
-              type: 'POST',
-              data: data,
-              success: function () {
-                $('#feedback-submit-loading').remove();
-                $('#feedback-module').append(settings.tpl.submitSuccess);
-              },
-              error: function () {
-                $('#feedback-submit-loading').remove();
-                $('#feedback-module').append(settings.tpl.submitError);
+          if (options.isEmail) {
+            if ($('#feedback-note').val().length > 0 && isValidEmail) {
+              $('#feedback-submit-success,#feedback-submit-error').remove();
+              $('#feedback-overview').hide();
+              category = $('#feedback-category');
+  
+              post.img = img;
+              post.note = $('#feedback-note').val();
+              post.email = $('#emailField').val();
+              if (category) {
+                post.category = category.children('select').val();
               }
-            });
+  
+              if (typeof settings.postExtraInfo === 'function') {
+                post.extraInfo = settings.postExtraInfo();
+              }
+              data = { feedback: JSON.stringify(post) };
+              $('#feedback-module').append(settings.tpl.submitLoading);
+              $.ajax({
+                url: settings.endpoint,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function () {
+                  $('#feedback-submit-loading').remove();
+                  $('#feedback-module').append(settings.tpl.submitSuccess);
+                },
+                error: function () {
+                  $('#feedback-submit-loading').remove();
+                  $('#feedback-module').append(settings.tpl.submitError);
+                }
+              });
+            } else {
+              $('#feedback-only-overview-error').hide();
+              $('#feedback-overview-error').show();
+            }
           } else {
-            $('#feedback-overview-error').show();
+            if ($('#feedback-note').val().length > 0) {
+              $('#feedback-submit-success,#feedback-submit-error').remove();
+              $('#feedback-overview').hide();
+              category = $('#feedback-category');
+  
+              post.img = img;
+              post.note = $('#feedback-note').val();
+              post.email = $('#emailField').val();
+              if (category) {
+                post.category = category.children('select').val();
+              }
+  
+              if (typeof settings.postExtraInfo === 'function') {
+                post.extraInfo = settings.postExtraInfo();
+              }
+              data = { feedback: JSON.stringify(post) };
+              $('#feedback-module').append(settings.tpl.submitLoading);
+              $.ajax({
+                url: settings.endpoint,
+                dataType: 'json',
+                type: 'POST',
+                data: data,
+                success: function () {
+                  $('#feedback-submit-loading').remove();
+                  $('#feedback-module').append(settings.tpl.submitSuccess);
+                },
+                error: function () {
+                  $('#feedback-submit-loading').remove();
+                  $('#feedback-module').append(settings.tpl.submitError);
+                }
+              });
+            } else {
+              $('#feedback-only-overview-error').show();
+              $('#feedback-overview-error').hide();
+            }
           }
+
         });
       });
     }
